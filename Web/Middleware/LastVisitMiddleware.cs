@@ -4,7 +4,7 @@
     public class LastVisitMiddleware
     {
         private readonly RequestDelegate _next;
-        public readonly static string CookieName = "UNIVERSITY_LAST_VISIT";
+        public readonly static string CookieName = "SHOP_LAST_VISIT";
 
         public LastVisitMiddleware(RequestDelegate @delegate)
         {

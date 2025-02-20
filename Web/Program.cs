@@ -6,18 +6,17 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Konfiguracja połączenia z bazą SQLite (plik w katalogu Data w projekcie Web)
-var connectionString = builder.Configuration.GetConnectionString("UniversityContextConnection")
-    ?? throw new InvalidOperationException("Connection string 'UniversityContextConnection' not found.");
 
-// Dodanie bazy danych SQLite
-builder.Services.AddDbContext<UniversityContext>(options =>
+var connectionString = builder.Configuration.GetConnectionString("ShopContextConnection")
+    ?? throw new InvalidOperationException("Connection string 'ShopContextConnection' not found.");
+
+builder.Services.AddDbContext<ShopContext>(options =>
     options.UseSqlite(connectionString));
 
-// Dodanie Identity z rolami
+
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<UniversityContext>();
+    .AddEntityFrameworkStores<ShopContext>();
 
 
 builder.Services.AddMemoryCache();
@@ -28,7 +27,7 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Middleware – konfiguracja potoku żądań
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

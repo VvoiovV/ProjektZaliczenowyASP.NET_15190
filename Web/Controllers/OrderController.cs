@@ -10,9 +10,9 @@ namespace Web.Controllers
 {
     public class OrderController : Controller
     {
-        private readonly UniversityContext _context;
+        private readonly ShopContext _context;
 
-        public OrderController(UniversityContext context)
+        public OrderController(ShopContext context)
         {
             _context = context;
         }
@@ -25,18 +25,18 @@ namespace Web.Controllers
                 return NotFound();
             }
 
-            // ✅ Sprawdzenie, czy użytkownik jest zalogowany
+            
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId == null)
             {
-                return RedirectToPage("/Account/Login", new { area = "Identity" }); // Jeśli nie jest zalogowany, przekieruj do logowania
+                return RedirectToPage("/Account/Login", new { area = "Identity" }); 
             }
 
-            // ✅ Tworzenie zamówienia dla zalogowanego użytkownika
+            
             var order = new OrderEntity
             {
                 ProductId = product.Id,
-                UserId = userId, // ✅ Używa ID aktualnie zalogowanego użytkownika
+                UserId = userId, 
                 OrderDate = DateTime.Now,
                 IsPaid = false
             };

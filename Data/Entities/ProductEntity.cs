@@ -11,8 +11,8 @@ namespace Data.Entities
     public class ProductEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;  // ✅ Nazwa produktu
-        public decimal Price { get; set; }  // ✅ Cena kursu
-        public string Description { get; set; } = string.Empty;  // ✅ Opis kursu
+        public string Name { get; set; } = string.Empty; 
+        public decimal Price { get; set; } 
+        public string Description { get; set; } = string.Empty;  
     }
 }

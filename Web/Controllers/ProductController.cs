@@ -9,20 +9,20 @@ namespace Web.Controllers
     [AllowAnonymous]
     public class ProductController : Controller
     {
-        private readonly UniversityContext _context;
+        private readonly ShopContext _context;
 
-        public ProductController(UniversityContext context)
+        public ProductController(ShopContext context)
         {
             _context = context;
         }
 
-        // GET: Product
+       
         public async Task<IActionResult> Index()
         {
             return View(await _context.Products.ToListAsync());
         }
 
-        // GET: Product/Details/5
+        
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,13 +42,12 @@ namespace Web.Controllers
 
         [Authorize(Roles = "admin")]
 
-        // GET: Product/Create
+       
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Product/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Price,Description")] ProductEntity product)
@@ -62,7 +61,6 @@ namespace Web.Controllers
             return View(product);
         }
 
-        // GET: Product/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -78,7 +76,6 @@ namespace Web.Controllers
             return View(product);
         }
 
-        // POST: Product/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Description")] ProductEntity product)
@@ -111,7 +108,7 @@ namespace Web.Controllers
             return View(product);
         }
 
-        // GET: Product/Delete/5
+       
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -129,7 +126,7 @@ namespace Web.Controllers
             return View(product);
         }
 
-        // POST: Product/Delete/5
+      
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Data
 {
-    public class UniversityContext : IdentityDbContext<IdentityUser>
+    public class ShopContext : IdentityDbContext<IdentityUser>
     {
        
-        public DbSet<ProductEntity> Products { get; set; } //  Zmieniono z Courses
-        public DbSet<OrderEntity> Orders { get; set; } //  Zmieniono z Enrollments
+        public DbSet<ProductEntity> Products { get; set; }
+        public DbSet<OrderEntity> Orders { get; set; } 
         
         
 
-        public UniversityContext(DbContextOptions<UniversityContext> options)
+        public ShopContext(DbContextOptions<ShopContext> options)
     :   base(options)
         {
         }

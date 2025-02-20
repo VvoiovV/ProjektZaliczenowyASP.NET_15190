@@ -6,10 +6,10 @@ namespace Data.Entities
     public class OrderEntity
     {
         public int Id { get; set; }
-        public int ProductId { get; set; }  // ✅ ID kursu (produktu)
-        public string UserId { get; set; } = string.Empty;  // ✅ ID użytkownika
-        public DateTime OrderDate { get; set; }  // ✅ Data zamówienia
-        public bool IsPaid { get; set; }  // ✅ Czy zamówienie jest opłacone?
+        public int ProductId { get; set; }  
+        public string UserId { get; set; } = string.Empty;  
+        public DateTime OrderDate { get; set; } 
+        public bool IsPaid { get; set; }  
 
         public ProductEntity? Product { get; set; }
     }

@@ -6,9 +6,9 @@ namespace Web.Views.Shared.Components
 {
     public class CartSummaryViewComponent : ViewComponent
     {
-        private readonly UniversityContext _context;
+        private readonly ShopContext _context;
 
-        public CartSummaryViewComponent(UniversityContext context)
+        public CartSummaryViewComponent(ShopContext context)
         {
             _context = context;
         }

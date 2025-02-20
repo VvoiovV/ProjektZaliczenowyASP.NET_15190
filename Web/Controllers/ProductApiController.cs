@@ -9,9 +9,9 @@ namespace Web.Controllers
     [Produces("application/json")]
     public class ProductApiController : ControllerBase
     {
-        private readonly UniversityContext _context;
+        private readonly ShopContext _context;
 
-        public ProductApiController(UniversityContext context)
+        public ProductApiController(ShopContext context)
         {
             _context = context;
         }
