@@ -22,11 +22,7 @@ namespace Data.Entities
         [Required]
         public string Email { get; set; }
 
-        [MinLength(5)]
-        [MaxLength(6)]
-        [Column("index")]
-        [Required]
-        public string IndexNumber { get; set; }
+       
 
         [Column("birth_date")]
         public DateTime Birth { get; set; }
