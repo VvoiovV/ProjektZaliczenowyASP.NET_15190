@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Data.Entities.OrderEntity>
+
+<h1>Twoje zamówienia</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Produkt</th>
+            <th>Data zamówienia</th>
+            <th>Opłacone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Product?.Name</td>
+                <td>@order.OrderDate.ToString("yyyy-MM-dd HH:mm")</td>
+                <td>@(order.IsPaid ? "Tak" : "Nie")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Product" asp-action="Index">Powrót do listy produktów</a>

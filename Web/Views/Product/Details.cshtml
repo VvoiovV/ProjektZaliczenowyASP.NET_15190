@@ -1,0 +1,21 @@
+﻿@model Data.Entities.ProductEntity
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h1>@Model.Name</h1>
+
+<div class="mb-3">
+    <p><strong>Price:</strong> @Model.Price PLN</p>
+    <p><strong>Description:</strong> @Model.Description</p>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    @if (User.IsInRole("admin"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+    }
+</div>

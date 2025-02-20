@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Data.Entities.ProductEntity>
+
+<h1>Lista produktów</h1>
+
+@if (User.IsInRole("admin"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Dodaj produkt</a>
+    </p>
+}
+
+@foreach (var product in Model)
+{
+    <div>
+        <h3>@product.Name</h3>
+        <p>@product.Price PLN</p>
+        <a asp-controller="Order" asp-action="AddToOrder" asp-route-id="@product.Id" class="btn btn-success">Kup</a>
+        <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-info">Szczegóły</a>
+
+
+        @* Tylko admin widzi przyciski edycji/usuwania *@
+        @if (User.IsInRole("admin"))
+        {
+            <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-warning">Edytuj</a>
+            <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger">Usuń</a>
+        }
+    </div>
+}
